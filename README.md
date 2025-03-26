@@ -1,28 +1,37 @@
 # ESP32-Keyboard-Customized
 一个多功能的5键键盘，基于ESP32-C3。
 
-## Features
+## 功能
 
- - [√] Send single key
- - [√] Send combo
- - [√] Send media key
- - [√] Count down timer
- - [√] Metronome
- - [√] Load other presets
- - [-] Create new presets without modifying code
- - [√] Battery Volt. monitor
+- [√]发送单个按键
 
-## Hardware
+- [√]发送组合键
 
-This project uses ESP32-C3-mini-1 module, with 5 mechanical key shafts, 1 passive buzzer, and 1 indicator led.
+- [√]发送媒体键
 
-A 0.91 inch OLED display (128*32) is used for interface display.
+- [√]倒计时定时器
 
-TP4056 module and 3.7V lithium battery are used for power supply.
+- [√]节拍器
 
-See below for specific pin settings:
+- [√]加载其他预设
+
+- [-]不修改代码创建新预设
+
+- [√]电池电压监测
+
+
+## 硬件
+
+本项目使用 ESP32-C3-mini-1 模块，配备 5 个机械按键轴、1 个无源蜂鸣器和 1 个指示灯。
+
+使用 0.91 英寸 OLED 显示屏（128x32）作为界面显示。
+
+使用 TP4056 模块和 3.7V 锂电池供电。
+
+具体引脚设置如下：
+
 ```
-// Pin definitions
+// 引脚定义
 #define ADC_PIN         A0
 #define BUZZER_PIN      1
 #define BTN_1_PIN       2
@@ -35,31 +44,38 @@ See below for specific pin settings:
 #define STATUS_LED      10
 ```
 
-*Keys should be set to pull-up mode. If you don't have external pull-up resistors, please change the pinMode of each key to 'INPUT_PULLUP' (in the KEY_Init() function).*
 
-## How to use
+*按键应设置为上拉模式。如果没有外部上拉电阻，请将每个按键的 pinMode 更改为"'INPUT_PULLUP'”（在 KEY_Init()函数中）。*
 
-Please use platformio to download.
-The default key setting should be:
 
-`BTN_1_PIN`: Ctrl+X
+## 使用方法
 
-`BTN_2_PIN`: Ctrl+C
+请使用 PlatformIO 下载。
+默认按键设置应为：
 
-`BTN_3_PIN`: Ctrl+V
+`BTN_1_PIN`：Ctrl+X
 
-`BTN_4_PIN`: N/A
+`BTN_2_PIN`：Ctrl+C
 
-`BTN_5_PIN`: N/A
+`BTN_3_PIN`：Ctrl+V
 
-- Press and hold `BTN_4_PIN` to enter metronome mode
-- Press and hold `BTN_5_PIN` to enter the timer setting screen
-- Press and hold KEY4 and KEY5 at the same time to modify key mapping (presets)
+`BTN_4_PIN`：无
 
-**Once in these modes, to return plz press and hold KEY5`BTN_5_PIN`**
+`BTN_5_PIN`：无
 
-*The code is not robust enough, bugs exists. **Really appreciate it if you could suggest changes and offer code.***
 
-*Known issue:*
-- *An extra keystroke is triggered abnormally when returning to the main mode*
-- *Return to main mode when metronome is enabled, keystroke is unavailable*
+• 按住`BTN_4_PIN`进入节拍器模式
+
+• 按住`BTN_5_PIN`进入定时器设置界面
+
+• 同时按住 KEY4 和 KEY5 修改按键映射（预设）
+
+进入这些模式后，要返回请按住 KEY5`BTN_5_PIN`
+
+*代码不够健壮，存在漏洞。如果您能提出修改建议并提供代码，将不胜感激。*
+
+*已知问题：*
+
+- *从主模式返回时会异常触发额外的按键操作*
+
+- *启用节拍器后返回主模式，按键操作无效*
