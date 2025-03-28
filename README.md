@@ -47,7 +47,7 @@
 
 ## 使用方法
 
-请使用 PlatformIO 下载。
+请使用 PlatformIO 导入项目文件夹/下载程序。
 默认按键设置应为：
 
 `BTN_1_PIN`：Ctrl+X
