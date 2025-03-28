@@ -1,6 +1,8 @@
 # ESP32-Keyboard-Customized
 一个多功能的5键键盘，基于ESP32-C3。
 
+![IMG_20250328_122641](https://github.com/user-attachments/assets/e44e63d6-a83e-4bbb-9b9e-1eea8c9908c4)
+
 ## 功能
 
 - [√]发送单个按键
